@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://jee.javapapers.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://jee.javapapers.com" xmlns:intf="http://jee.javapapers.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://jee.javapapers.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="pickPackage">
+    <complexType>
+     <sequence>
+      <element name="p" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="pickPackageResponse">
+    <complexType>
+     <sequence>
+      <element name="pickPackageReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="pickPackageRequest">
+
+      <wsdl:part element="impl:pickPackage" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="pickPackageResponse">
+
+      <wsdl:part element="impl:pickPackageResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="PackagePicker">
+
+      <wsdl:operation name="pickPackage">
+
+         <wsdl:input message="impl:pickPackageRequest" name="pickPackageRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:pickPackageResponse" name="pickPackageResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="PackagePickerSoapBinding" type="impl:PackagePicker">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="pickPackage">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="pickPackageRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="pickPackageResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="PackagePickerService">
+
+      <wsdl:port binding="impl:PackagePickerSoapBinding" name="PackagePicker">
+
+         <wsdlsoap:address location="http://localhost:8080/ServerFarmLegacy/services/PackagePicker"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
